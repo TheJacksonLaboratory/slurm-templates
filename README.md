@@ -1,7 +1,3 @@
-# slurm-templates
-Slurm templates and notes.
-
-
 # Quick Guide
 
 ## View your running/pending jobs 
@@ -25,21 +21,24 @@ Slurm templates and notes.
 - Multi-core srun interactive job on **compute** partition (default) and **batch** QoS (default) with 4 cpus and 8GB RAM for 12 hrs.
 ```srun -p compute -q batch -N 1 -n 1 -c 4 --mem 8GB --time 12:00:00 --pty bash```
 
-## Example Slurm **sbatch** headers
+## Example Slurm **sbatch** script header files
 
-- Single-core sbatch interactive job on **dev** partition and **dev** QoS with 8GB RAM for 4 hrs.
+- single-core sbatch interactive job on **dev** partition and **dev** QoS with 1 cpu and 6GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_00_dev_dev.sh "slurm_template_00_dev_dev.sh").
 
-- Multi-core sbatch interactive job on **dev** partition and **dev** QoS with 8GB for 8 hrs (max time limit for dev QoS).
+- Multi-core sbatch interactive job on **dev** partition and **dev** QoS with 4 cpus and 24GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_01_dev_dev.sh "slurm_template_01_dev_dev.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **batch** QoS (default) with 8GB RAM for 24 hrs.
+- Multi-core sbatch interactive job on **compute** partition (default) and **batch** QoS with 4 cpus and 48GB RAM for 24 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_02_compute_batch.sh "slurm_template_02_compute_batch.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **batch** QoS (default) for 72 hrs (time limit for batch QoS)).
+- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_03_compute_long.shh "slurm_template_03_compute_long.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **batch** QoS (default) for 72 hrs (time limit for batch QoS)).
+- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_04_high_mem_batch.sh "slurm_template_04_high_mem_batch.sh").
 
+- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_05_compute_batch_array.sh "slurm_template_05_compute_batch_array.sh").
 
 ## General sbatch headers 
-- Run sbatch jobs with ```sbatch <sbatch_script.sh> ``` where **<sbatch_script.sh>** is the name of your slurm script. 
+- Run sbatch jobs with ```sbatch <sbatch_script.sh>``` where **<sbatch_script.sh>** is the name of your slurm script. 
+ - Set the number of cores with the ```--cpus-per-task``` flag and leave ```--nodes=1``` and ```--ntasks=1``` set to 1 (for most jobs).
+ - The ```--cpus-per-task``` value is passed into the job as the ```${SLURM_CPUS_PER_TASK}``` enviromental variable.
 
 
 - sbatch header for dev partition and dev QoS
@@ -55,7 +54,7 @@ Slurm templates and notes.
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the nodes (do not change for non-mpi jobs))
 #SBATCH --ntasks=1           # Do not change unless you know what your doing (it sets the number of tasks (do not change for non-mpi jobs))
 #SBATCH --cpus-per-task=4    # Set the number of CPUs for task (change to number of CPU/threads utilized in run script/programs) [limited to 30 CPUs per node]
-#SBATCH --mem=32GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~6 GB per core, for dev) (limited to 180 GB per node on compute partition)
+#SBATCH --mem=24GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~6 GB per core, for dev) (limited to 180 GB per node on dev partition)
 #SBATCH --time=8:00:00       # Set the max time limit (dev partition/QoS has 8 hr limit)
 
 ###-----load modules if needed-------###
@@ -76,7 +75,7 @@ module load singularity
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
 #SBATCH --ntasks=1           # Do not change unless you know what your doing (it sets the number of tasks (do not change for non-mpi jobs))
 #SBATCH --cpus-per-task=4    # Set the number of CPUs for task (change to number of CPU/threads utilized in run script/programs) [limited to 70 CPUs per node]
-#SBATCH --mem=64GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~10 GB per core, for compute partition) [limited to 700 GB per node on compute partition]
+#SBATCH --mem=48GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~10 GB per core, for compute partition) [limited to 760 GB per node on compute partition]
 #SBATCH --time=72:00:00      # Set the max time limit (batch QoS 72 hr limit)
 
 ###-----load modules if needed-------###
@@ -98,8 +97,8 @@ module load singularity
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
 #SBATCH --ntasks=1           # Do not change unless you know what your doing (it sets the number of tasks (do not change for non-mpi jobs))
 #SBATCH --cpus-per-task=4    # Set the number of CPUs for task (change to number of CPU/threads utilized in run script/programs) [limited to 70 CPUs per node]
-#SBATCH --mem=64GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~10 GB per core) (limited to 760 GB per node on compute partition)
-#SBATCH --time=140:00:00     # Set the max time limit (long QoS has 336 hr limit (14 days))
+#SBATCH --mem=48GB           # Set to a value ~10-20% greater than max amount of memory the job will use (or ~10 GB per core, for compute partition) [limited to 760 GB per node on compute partition]
+#SBATCH --time=96:00:00      # Set the max time limit (long QoS has 336 hr limit (14 days))
 
 ###-----load modules if needed-------###
 module load singularity
@@ -122,7 +121,7 @@ module load singularity
 #SBATCH --ntasks=1           # Do not change unless you know what your doing (it sets the number of tasks (do not change for non-mpi jobs))
 #SBATCH --cpus-per-task=46   # Set the number of CPUs for task (change to number of CPU/threads utilized in run script/programs) [limited to 142 CPUs per node]
 #SBATCH --mem=1024GB         # Here set to ~1TB (~22GB per core set above )[limited to 3022GB per node]
-#SBATCH --time=24:00:00      # Set the max time limit (batch QoS 72 hr limit)
+#SBATCH --time=24:00:00      # Set the max time limit (batch QoS 72 hr limit, long QoS 336 hr limit)
 
 ###-----load modules if needed-------###
 module load singularity
