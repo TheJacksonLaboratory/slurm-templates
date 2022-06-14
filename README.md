@@ -49,6 +49,7 @@
 ```{: .bash}
 #!/bin/bash
 
+#SBATCH --job-name=MY_JOB    # Set job name
 #SBATCH --partition=dev      # Set the partition 
 #SBATCH --qos=dev            # Set the QoS
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the nodes (do not change for non-mpi jobs))
@@ -70,6 +71,7 @@ module load singularity
 ```{: .bash}
 #!/bin/bash
 
+#SBATCH --job-name=MY_JOB    # Set job name
 #SBATCH --partition=compute  # Set the partition 
 #SBATCH --qos=batch          # Set the QoS
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
@@ -92,6 +94,7 @@ module load singularity
 ```{: .bash}
 #!/bin/bash
 
+#SBATCH --job-name=MY_JOB    # Set job name
 #SBATCH --partition=compute  # Set the partition 
 #SBATCH --qos=long           # Set the QoS
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
@@ -115,6 +118,7 @@ module load singularity
 ```{: .bash}
 #!/bin/bash
 
+#SBATCH --job-name=MY_JOB    # Set job name
 #SBATCH --partition=high_mem # Set the partition 
 #SBATCH --qos=batch          # Set the QoS
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
@@ -138,6 +142,7 @@ module load singularity
 ```{: .bash}
 #!/bin/bash
 
+#SBATCH --job-name=MY_JOB    # Set job name
 #SBATCH --partition=compute  # Set the partition 
 #SBATCH --qos=batch          # Set the QoS
 #SBATCH --nodes=1            # Do not change unless you know what your doing (it set the number of nodes (do not change for non-mpi jobs))
