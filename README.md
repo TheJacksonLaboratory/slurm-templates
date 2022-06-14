@@ -21,19 +21,19 @@
 - Multi-core srun interactive job on **compute** partition (default) and **batch** QoS (default) with 4 cpus and 8GB RAM for 12 hrs.\
 ```srun -p compute -q batch -N 1 -n 1 -c 4 --mem 8GB --time 12:00:00 --pty bash```
 
-## Example Slurm **sbatch** script header files
+## Example Slurm **sbatch** script header file templates
 
-- single-core sbatch interactive job on **dev** partition and **dev** QoS with 1 cpu and 6GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_00_dev_dev.sh "slurm_template_00_dev_dev.sh").
+- single-core sbatch script on **dev** partition and **dev** QoS with 1 cpu and 6GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_00_dev_dev.sh "slurm_template_00_dev_dev.sh").
 
-- Multi-core sbatch interactive job on **dev** partition and **dev** QoS with 4 cpus and 24GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_01_dev_dev.sh "slurm_template_01_dev_dev.sh").
+- Multi-core sbatch script on **dev** partition and **dev** QoS with 4 cpus and 24GB for 8 hrs (max time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_01_dev_dev.sh "slurm_template_01_dev_dev.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **batch** QoS with 4 cpus and 48GB RAM for 24 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_02_compute_batch.sh "slurm_template_02_compute_batch.sh").
+- Multi-core sbatch script on **compute** partition (default) and **batch** QoS with 4 cpus and 48GB RAM for 24 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_02_compute_batch.sh "slurm_template_02_compute_batch.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_03_compute_long.shh "slurm_template_03_compute_long.sh").
+- Multi-core sbatch script on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_03_compute_long.shh "slurm_template_03_compute_long.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_04_high_mem_batch.sh "slurm_template_04_high_mem_batch.sh").
+- Multi-core sbatch script on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_04_high_mem_batch.sh "slurm_template_04_high_mem_batch.sh").
 
-- Multi-core sbatch interactive job on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_05_compute_batch_array.sh "slurm_template_05_compute_batch_array.sh").
+- Multi-core sbatch script on **compute** partition (default) and **long** QoS with 4 cpus and 48GB RAM for 96 hrs. [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_05_compute_batch_array.sh "slurm_template_05_compute_batch_array.sh").
 
 ## General sbatch headers 
 - Run sbatch jobs with ```sbatch <sbatch_script.sh>``` where **<sbatch_script.sh>** is the name of your slurm script. 
