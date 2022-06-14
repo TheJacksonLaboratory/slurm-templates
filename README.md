@@ -41,7 +41,7 @@
  - The ```--cpus-per-task``` value is passed into the job as the ```${SLURM_CPUS_PER_TASK}``` enviromental variable.
 
 
-- sbatch header for dev partition and dev QoS
+## sbatch header for dev partition and dev QoS
  - dev CPU core speed 3.60GHz vs compute 2.70GHz
  - dev has 8 hour time limit 
  - dev partition and dev QoS must be ran together
@@ -66,7 +66,7 @@ module load singularity
 
 ```
 
-- sbatch example header for compute partition and batch QoS
+## sbatch example header for compute partition and batch QoS
 
 ```{: .bash}
 #!/bin/bash
@@ -88,7 +88,7 @@ module load singularity
 
 ```
 
-- sbatch example header for compute partition and **long** QoS
+## sbatch example header for compute partition and **long** QoS
  - **long** QoS is designed for jobs that do not finish in the batch QoS
 
 ```{: .bash}
@@ -111,7 +111,7 @@ module load singularity
 
 ```
 
-- sbatch example header for **high_mem** partition and batch QoS
+## sbatch example header for **high_mem** partition and batch QoS
  - high_mem partition only for jobs requiring **more than 760GB RAM** per node
  - max available memory on the high_mem nodes is 3022GB, just shy of 3TB (3072GB binary unit), also the '--mem' value is required to be an integer (no decimals). 
  - high_mem partition time limit is 72 hours so use with **batch** QoS.
@@ -136,7 +136,7 @@ module load singularity
 
 ```
 
-- sbatch example header for compute partition and batch QoS with an array
+## sbatch example header for compute partition and batch QoS with an array
  - array value can be found in the variable ${SLURM_ARRAY_TASK_ID}
  - limit the number of arrays running at once by adding the % to ```#SBATCH --array=1-10%1``` for 1 job to run at time    
 
