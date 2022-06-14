@@ -114,6 +114,7 @@ module load singularity
 - sbatch example header for **high_mem** partition and batch QoS
  - high_mem partition only for jobs requiring **more than 760GB RAM** per node
  - max available memory on the high_mem nodes is 3022GB, just shy of 3TB (3072GB binary unit), also the '--mem' value is required to be an integer (no decimals). 
+ - high_mem partition time limit is 72 hours so use with **batch** QoS.
 
 ```{: .bash}
 #!/bin/bash
@@ -125,7 +126,7 @@ module load singularity
 #SBATCH --ntasks=1           # Do not change unless you know what your doing (it sets the number of tasks (do not change for non-mpi jobs))
 #SBATCH --cpus-per-task=46   # Set the number of CPUs for task (change to number of CPU/threads utilized in run script/programs) [limited to 142 CPUs per node]
 #SBATCH --mem=1024GB         # Here set to ~1TB (~22GB per core set above )[limited to 3022GB per node]
-#SBATCH --time=24:00:00      # Set the max time limit (batch QoS 72 hr limit, long QoS 336 hr limit)
+#SBATCH --time=24:00:00      # Set the max time limit (batch QoS 72 hr limit)
 
 ###-----load modules if needed-------###
 module load singularity
