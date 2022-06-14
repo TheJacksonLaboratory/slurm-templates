@@ -12,10 +12,10 @@
 - Single-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 4 hrs.\
 ```srun -p dev -q dev -N 1 -n 1 -c 1 --mem 8GB --time 4:00:00 --pty bash```
 
-- Single-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 8 hrs (max time limit for dev QoS).\
+- Single-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 8 hrs (time limit for dev QoS).\
 ```srun -p dev -q dev -N 1 -n 1 -c 1 --mem 8GB --time 8:00:00 --pty bash```
 
-- Multi-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 8 hrs (max time limit for dev QoS).\
+- Multi-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 8 hrs (time limit for dev QoS).\
 ```srun -p dev -q dev -N 1 -n 1 -c 4 --mem 8GB --time 8:00:00 --pty bash```
 
 - Multi-core srun interactive job on **compute** partition (default) and **batch** QoS (default) with 4 cpus and 8GB RAM for 12 hrs.\
