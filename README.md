@@ -9,7 +9,7 @@
 - Default srun request **small tasks only** (1 hr time limit, 1 core, compute partition & batch QoS). \
 ```srun --pty bash```
 
-- General format for srun\
+- General format for srun [**do not execute without changing values**]\
 ```srun -p <partition> -q <QoS> -N <Number of Nodes> -n <Number of tasks> -c <cores> --time <time> --pty bash```
 
 - Single-core srun interactive job on **dev** partition and **dev** QoS with 4 cpus and 8GB RAM for 4 hrs.\
