@@ -6,6 +6,9 @@
 
 ## To get an interactive node with srun (no MPI)
 
+- Default srun request **small tasks only** (1 hr time limit, 1 core, compute partition & batch QoS). \
+```srun --pty bash```
+
 - General format for srun\
 ```srun -p <partition> -q <QoS> -N <Number of Nodes> -n <Number of tasks> -c <cores> --time <time> --pty bash```
 
