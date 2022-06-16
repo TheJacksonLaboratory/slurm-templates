@@ -26,7 +26,7 @@
 
 ## Example Slurm **sbatch** script header file templates
 
-- single-core sbatch script on **dev** partition & **dev** QoS with 1 cpu and 6GB for 8 hrs (time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_00_dev_dev.sh "slurm_template_00_dev_dev.sh").
+- Single-core sbatch script on **dev** partition & **dev** QoS with 1 cpu and 6GB for 8 hrs (time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_00_dev_dev.sh "slurm_template_00_dev_dev.sh").
 
 - Multi-core sbatch script on **dev** partition & **dev** QoS with 4 cpus and 24GB for 8 hrs (time limit for dev QoS). [LINK](https://github.com/TheJacksonLaboratory/slurm-templates/blob/main/slurm_template_01_dev_dev.sh "slurm_template_01_dev_dev.sh").
 
