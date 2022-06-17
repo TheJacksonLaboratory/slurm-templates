@@ -174,4 +174,9 @@ module load singularity
 
 - ```sinfo ```
 
+## Workshop templates details 
+
+- workshop website: https://thejacksonlaboratory.github.io/intro-to-hpc/
+
+- workshop sections for templates: https://thejacksonlaboratory.github.io/intro-to-hpc/12-Batch-Jobs-with-sbatch/index.html
 
