@@ -18,3 +18,6 @@
 LIB=$(sed -n -e "${SLURM_ARRAY_TASK_ID} p" /fastscratch/${USER}/adir/slurm-templates/workshop_examples/list_lib_names.txt)
 
 echo "${LIB}_R1.fq    ${LIB}_R2.fq" > array_run2_${SLURM_ARRAY_TASK_ID}_out_${LIB}_file_names.txt
+
+sleep 15
+
